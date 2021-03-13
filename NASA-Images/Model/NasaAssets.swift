@@ -20,8 +20,8 @@ struct NasaAssets: Codable {
             
             struct DataAsset: Codable {
                 let title: String
-                let photographer: String
-                let location: String
+                let photographer: String?
+                let location: String?
                 let description: String
             }
             struct LinkAsset: Codable {
