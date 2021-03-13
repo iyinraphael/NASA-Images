@@ -11,6 +11,8 @@
 		EB5D673725FD62C7007DD1AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5D673625FD62C7007DD1AC /* Assets.xcassets */; };
 		EB5D673A25FD62C7007DD1AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5D673825FD62C7007DD1AC /* LaunchScreen.storyboard */; };
 		EB5D674725FD661A007DD1AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D674625FD661A007DD1AC /* ViewController.swift */; };
+		EB5D674D25FD67E4007DD1AC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D674C25FD67E4007DD1AC /* Network.swift */; };
+		EB5D675625FD69B6007DD1AC /* NasaAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D675525FD69B6007DD1AC /* NasaAssets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		EB5D673925FD62C7007DD1AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB5D673B25FD62C7007DD1AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB5D674625FD661A007DD1AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB5D674C25FD67E4007DD1AC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		EB5D675525FD69B6007DD1AC /* NasaAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaAssets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,8 @@
 		EB5D672C25FD62C6007DD1AC /* NASA-Images */ = {
 			isa = PBXGroup;
 			children = (
+				EB5D675025FD68C3007DD1AC /* Model */,
+				EB5D674B25FD67C8007DD1AC /* Network */,
 				EB5D674525FD645E007DD1AC /* View Controller */,
 				EB5D672D25FD62C6007DD1AC /* AppDelegate.swift */,
 				EB5D673625FD62C7007DD1AC /* Assets.xcassets */,
@@ -67,6 +73,22 @@
 				EB5D674625FD661A007DD1AC /* ViewController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		EB5D674B25FD67C8007DD1AC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D674C25FD67E4007DD1AC /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EB5D675025FD68C3007DD1AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D675525FD69B6007DD1AC /* NasaAssets.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5D674725FD661A007DD1AC /* ViewController.swift in Sources */,
+				EB5D675625FD69B6007DD1AC /* NasaAssets.swift in Sources */,
 				EB5D672E25FD62C6007DD1AC /* AppDelegate.swift in Sources */,
+				EB5D674D25FD67E4007DD1AC /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
