@@ -17,7 +17,7 @@ class Network {
     
     // MARK: - Property
     private let baseUrl = URL(string: "https://images-api.nasa.gov/search")!
-    typealias CompletionHandler = (Result<NasaAssets, NetWorkError>) -> Void
+    typealias CompletionHandler = (Result<[ItemAsset], NetWorkError>) -> Void
     
     // MARK: - Method
     func getNasaAssets(completion: @escaping CompletionHandler = {_ in}) {
@@ -42,9 +42,9 @@ class Network {
             
             do {
                 let jsonDecoder = JSONDecoder()
-                let nasaAssets = try jsonDecoder.decode(NasaAssets.self, from: data)
-                print(nasaAssets)
-                completion(.success(nasaAssets))
+                let collection = try jsonDecoder.decode(NasaAssets.self, from: data)
+                let items = collection.collection.items
+                completion(.success(items))
             } catch {
                 NSLog("Error occured decoding data: \(error)")
                 completion(.failure(.failedDecode))

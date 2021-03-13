@@ -13,22 +13,21 @@ struct NasaAssets: Codable {
     
     struct CollectionAsset: Codable {
         let items: [ItemAsset]
-        
-        struct ItemAsset: Codable {
-            let data: [DataAsset]
-            let links: [LinkAsset]
-            
-            struct DataAsset: Codable {
-                let title: String
-                let photographer: String?
-                let location: String?
-                let description: String
-            }
-            struct LinkAsset: Codable {
-                let href: String
-            }
-        }
     }
 }
 
 
+struct ItemAsset: Codable {
+    let data: [DataAsset]
+    let links: [LinkAsset]
+    
+    struct DataAsset: Codable {
+        let title: String
+        let photographer: String?
+        let location: String?
+        let description: String
+    }
+    struct LinkAsset: Codable {
+        let href: String
+    }
+}
