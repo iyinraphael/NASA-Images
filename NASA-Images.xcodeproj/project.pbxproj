@@ -19,6 +19,7 @@
 		EB5D676625FD9064007DD1AC /* BoxObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D676525FD9064007DD1AC /* BoxObservable.swift */; };
 		EB5D677D25FDD2A4007DD1AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D677C25FDD2A4007DD1AC /* DetailViewController.swift */; };
 		EB5D678025FDEA10007DD1AC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D677F25FDEA10007DD1AC /* DetailViewModel.swift */; };
+		EB5D678625FDF84E007DD1AC /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D678525FDF84E007DD1AC /* Appearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EB5D676525FD9064007DD1AC /* BoxObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxObservable.swift; sourceTree = "<group>"; };
 		EB5D677C25FDD2A4007DD1AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EB5D677F25FDEA10007DD1AC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		EB5D678525FDF84E007DD1AC /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5D676525FD9064007DD1AC /* BoxObservable.swift */,
+				EB5D678525FDF84E007DD1AC /* Appearance.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				EB5D675625FD69B6007DD1AC /* NasaAssets.swift in Sources */,
 				EB5D672E25FD62C6007DD1AC /* AppDelegate.swift in Sources */,
 				EB5D678025FDEA10007DD1AC /* DetailViewModel.swift in Sources */,
+				EB5D678625FDF84E007DD1AC /* Appearance.swift in Sources */,
 				EB5D676225FD8D82007DD1AC /* ViewModel.swift in Sources */,
 				EB5D676625FD9064007DD1AC /* BoxObservable.swift in Sources */,
 				EB5D674D25FD67E4007DD1AC /* Network.swift in Sources */,
@@ -408,7 +412,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iyinraphael.NASA-Images";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -429,7 +433,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iyinraphael.NASA-Images";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

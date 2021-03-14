@@ -11,7 +11,7 @@ class ViewModel {
     
     // MARK: - Properties
     var items: BoxObservable<[ItemAsset]?> = BoxObservable(value: nil)
-    let network = Network()
+    private let network = Network()
     
     init() {
         getItem()

@@ -75,7 +75,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVc = DetailViewController()
         let item = items[indexPath.row]
-        detailVc.item = item
+        detailVc.viewModel.item = item
         navigationController?.pushViewController(detailVc, animated: true)
     }
     

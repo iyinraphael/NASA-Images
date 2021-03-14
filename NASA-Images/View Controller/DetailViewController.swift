@@ -10,65 +10,81 @@ import UIKit
 class DetailViewController: UIViewController {
     
     // MARK: - Property
+    private let space: CGFloat = 20
     let viewModel = DetailViewModel()
-    var item: ItemAsset?
-    var descriptionLabel: UILabel!
-    var photographerLabel: UILabel!
-    var locationLabel: UILabel!
-    var imageView: UIImageView!
+    
+    private var descriptionLabel: UILabel!
+    private var photographerLabel: UILabel!
+    private var locationLabel: UILabel!
+    private var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "\(item?.data[0].title ?? "")"
         
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         
         photographerLabel = UILabel()
         photographerLabel.translatesAutoresizingMaskIntoConstraints = false
         photographerLabel.numberOfLines = 0
+        photographerLabel.textColor = Appearance.fontColor
+        photographerLabel.font = Appearance.labelFont
         view.addSubview(photographerLabel)
         
         locationLabel = UILabel()
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         locationLabel.numberOfLines = 0
+        locationLabel.textColor = Appearance.fontColor
+        locationLabel.font = Appearance.labelFont
         view.addSubview(locationLabel)
         
         descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = Appearance.labelFont
+        descriptionLabel.textColor = Appearance.fontColor
         view.addSubview(descriptionLabel)
         
-        let space: CGFloat = 20
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: space),
+            imageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: space / 2),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: space),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -space),
             imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
             
-            photographerLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: space),
+            photographerLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: space / 2),
             photographerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: space),
             
-            locationLabel.topAnchor.constraint(equalTo: photographerLabel.bottomAnchor, constant: space),
+            locationLabel.topAnchor.constraint(equalTo: photographerLabel.bottomAnchor, constant: space / 2),
             locationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: space),
             
-            descriptionLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: space),
+            descriptionLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: space / 2),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: space),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -space)
 
         ])
-        updateView()
-    }
-    
-    private func updateView() {
-        if !isViewLoaded { return }
         
-        let itemData = item?.data[0]
+        viewModel.title.bind { [weak self] title in
+            self?.title = title
+        }
         
-        imageView.image = viewModel.getImage(from: item?.links[0].href)
-        photographerLabel.text = itemData?.photographer
-        locationLabel.text = itemData?.location
-        descriptionLabel.text = itemData?.description
+        viewModel.image.bind { [weak self] image in
+            self?.imageView.image = image
+            self?.imageView.contentMode = .scaleAspectFit
+        }
+        
+        viewModel.photographer.bind { [weak self] photographer in
+            self?.photographerLabel.text = photographer
+        }
+        
+        viewModel.location.bind { [weak self] location in
+            self?.locationLabel.text = location
+        }
+        
+        viewModel.description.bind { [weak self] description in
+            self?.descriptionLabel.text = description
+            self?.descriptionLabel.adjustsFontSizeToFitWidth = true
+        }
     }
 }

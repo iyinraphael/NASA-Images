@@ -9,11 +9,33 @@ import UIKit.UIImage
 
 class DetailViewModel {
     
-    init() {
-        
+    // MARK: - Property
+    var title = BoxObservable(value: " ")
+    var description = BoxObservable(value: " ")
+    var photographer = BoxObservable(value: " ")
+    var location = BoxObservable(value: " ")
+    var image: BoxObservable<UIImage?> = BoxObservable(value: nil)
+    var item: ItemAsset? {
+        didSet {
+            setItemProperties()
+        }
     }
     
-    func getImage(from imageString: String?) -> UIImage {
+    init() {
+    }
+    
+    // MARK: - Method
+    private func setItemProperties() {
+        let itemData = item?.data[0]
+        
+        image.value = getImage(from: item?.links[0].href)
+        photographer.value = "Photographer: \(itemData?.photographer ?? " ")"
+        location.value = "Location: \(itemData?.location ?? " ")"
+        description.value = itemData?.description ?? " "
+        title.value = itemData?.title ?? " "
+    }
+    
+    private func getImage(from imageString: String?) -> UIImage {
         guard let imageWithString = imageString,
               let imageURL = URL(string: imageWithString),
               let data = try? Data(contentsOf: imageURL),
