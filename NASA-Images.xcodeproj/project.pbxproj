@@ -17,6 +17,8 @@
 		EB5D675A25FD754D007DD1AC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D675925FD754D007DD1AC /* ImageCollectionViewCell.swift */; };
 		EB5D676225FD8D82007DD1AC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D676125FD8D82007DD1AC /* ViewModel.swift */; };
 		EB5D676625FD9064007DD1AC /* BoxObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D676525FD9064007DD1AC /* BoxObservable.swift */; };
+		EB5D677D25FDD2A4007DD1AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D677C25FDD2A4007DD1AC /* DetailViewController.swift */; };
+		EB5D678025FDEA10007DD1AC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D677F25FDEA10007DD1AC /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		EB5D675925FD754D007DD1AC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		EB5D676125FD8D82007DD1AC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EB5D676525FD9064007DD1AC /* BoxObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxObservable.swift; sourceTree = "<group>"; };
+		EB5D677C25FDD2A4007DD1AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EB5D677F25FDEA10007DD1AC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5D674625FD661A007DD1AC /* ViewController.swift */,
+				EB5D677C25FDD2A4007DD1AC /* DetailViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5D676125FD8D82007DD1AC /* ViewModel.swift */,
+				EB5D677F25FDEA10007DD1AC /* DetailViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -247,9 +253,11 @@
 				EB5D675A25FD754D007DD1AC /* ImageCollectionViewCell.swift in Sources */,
 				EB5D675625FD69B6007DD1AC /* NasaAssets.swift in Sources */,
 				EB5D672E25FD62C6007DD1AC /* AppDelegate.swift in Sources */,
+				EB5D678025FDEA10007DD1AC /* DetailViewModel.swift in Sources */,
 				EB5D676225FD8D82007DD1AC /* ViewModel.swift in Sources */,
 				EB5D676625FD9064007DD1AC /* BoxObservable.swift in Sources */,
 				EB5D674D25FD67E4007DD1AC /* Network.swift in Sources */,
+				EB5D677D25FDD2A4007DD1AC /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

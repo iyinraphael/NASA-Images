@@ -11,11 +11,11 @@ import Kingfisher
 class ViewController: UIViewController {
     
     // MARK: - Properties
-   var collectionView: UICollectionView!
+    private var collectionView: UICollectionView!
     
-    let reuseIdentifier = "cell"
-    var items: [ItemAsset]?
-    let viewModel = ViewModel()
+    private let reuseIdentifier = "cell"
+    private var items = [ItemAsset]()
+    private let viewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         viewModel.items.bind { [weak self] items in
+            guard let items = items else { return }
             self?.items = items
             
             DispatchQueue.main.async {
@@ -59,17 +60,30 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items?.count ?? 0
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ImageCollectionViewCell,
-              let items = items else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell() }
         let item = items[indexPath.row]
         let url = URL(string: item.links[0].href)
         cell.assetImageView.kf.setImage(with: url)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVc = DetailViewController()
+        let item = items[indexPath.row]
+        detailVc.item = item
+        navigationController?.pushViewController(detailVc, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let count = 1
+        if indexPath.row == items.count - 1 {
+            viewModel.paginate(count: count)
+        }
     }
 }
 

@@ -31,4 +31,20 @@ class ViewModel {
         }
     }
     
+    func paginate(count: Int) {
+        if count == 5 {
+            return
+        }
+        network.pageValue += count
+        network.getNasaAssets { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let items):
+                self.items.value?.append(contentsOf: items)
+
+            default:
+                break
+            }
+        }
+    }
 }

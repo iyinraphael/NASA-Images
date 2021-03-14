@@ -18,13 +18,15 @@ class Network {
     // MARK: - Property
     private let baseUrl = URL(string: "https://images-api.nasa.gov/search")!
     typealias CompletionHandler = (Result<[ItemAsset], NetWorkError>) -> Void
+    var pageValue: Int = 1
     
     // MARK: - Method
     func getNasaAssets(completion: @escaping CompletionHandler = {_ in}) {
         var urlComponent = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)
         urlComponent?.queryItems = [URLQueryItem(name: "q", value: "apollo 11"),
                                     URLQueryItem(name: "description", value: "moon landing"),
-                                    URLQueryItem(name: "media_type", value: "image")]
+                                    URLQueryItem(name: "media_type", value: "image"),
+                                    URLQueryItem(name: "page", value: "\(pageValue)")]
         guard let url = urlComponent?.url else { return }
         
         URLSession.shared.dataTask(with: url) { data, _,  error in
