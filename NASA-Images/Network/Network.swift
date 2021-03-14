@@ -42,6 +42,7 @@ class Network {
             
             do {
                 let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 let collection = try jsonDecoder.decode(NasaAssets.self, from: data)
                 let items = collection.collection.items
                 completion(.success(items))

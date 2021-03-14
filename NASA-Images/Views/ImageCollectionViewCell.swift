@@ -12,11 +12,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     // MARK: - Properites
     var assetImageView: UIImageView!
     
-    var itemAsset: ItemAsset? {
-        didSet {
-            updateView()
-        }
-    }
+    var itemAsset: ItemAsset?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,8 +21,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         
         assetImageView = UIImageView()
         assetImageView.translatesAutoresizingMaskIntoConstraints = false
-        assetImageView.backgroundColor = .gray
-        assetImageView.contentMode = .scaleAspectFit
+        assetImageView.contentMode = .scaleAspectFill
         assetImageView.layer.masksToBounds = true
         assetImageView.layer.cornerRadius = radius
         addSubview(assetImageView)
@@ -35,16 +30,11 @@ class ImageCollectionViewCell: UICollectionViewCell {
             assetImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             assetImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             assetImageView.widthAnchor.constraint(equalTo: widthAnchor),
-            assetImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9),
+            assetImageView.heightAnchor.constraint(equalTo: widthAnchor)
         ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Methods
-    private func updateView() {
-       
     }
 }

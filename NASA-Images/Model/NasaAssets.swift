@@ -22,6 +22,7 @@ struct ItemAsset: Codable {
     let links: [LinkAsset]
     
     struct DataAsset: Codable {
+        let nasaId: String
         let title: String
         let photographer: String?
         let location: String?

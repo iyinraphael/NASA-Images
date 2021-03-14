@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController {
     
@@ -41,14 +42,17 @@ class ViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        viewModel.items.bind { [weak self] items in
-            self?.items = items
-        }
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
+        
+        viewModel.items.bind { [weak self] items in
+            self?.items = items
+            
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
     }
 
 }
@@ -59,12 +63,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-                as? ImageCollectionViewCell
-        else { return UICollectionViewCell() }
-        
-        let item = items?[indexPath.row]
-        cell.itemAsset = item
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ImageCollectionViewCell,
+              let items = items else { return UICollectionViewCell() }
+        let item = items[indexPath.row]
+        let url = URL(string: item.links[0].href)
+        cell.assetImageView.kf.setImage(with: url)
         
         return cell
     }

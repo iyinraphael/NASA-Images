@@ -5,7 +5,7 @@
 //  Created by Iyin Raphael on 3/13/21.
 //
 
-import Foundation
+import UIKit.UIImage
 
 class ViewModel {
     
@@ -18,7 +18,7 @@ class ViewModel {
     }
     
     // MARK: - Method
-    func getItem() {
+    private func getItem() {
         network.getNasaAssets { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -31,7 +31,4 @@ class ViewModel {
         }
     }
     
-    private func loadImage() {
-        
-    }
 }
