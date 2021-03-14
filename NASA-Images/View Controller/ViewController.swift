@@ -10,15 +10,16 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - Properties
-    var collectionView: UICollectionView!
+   var collectionView: UICollectionView!
     
     let reuseIdentifier = "cell"
-    let net = Network()
-    var items = [ItemAsset]()
+    var items: [ItemAsset]?
+    let viewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "NASA Images"
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 24, left: 12, bottom: 24, right: 12)
@@ -40,27 +41,21 @@ class ViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        net.getNasaAssets { result in
-            
-            switch result {
-            case .success(let items):
-                self.items = items
-            case .failure(.failedDecode):
-                break
-            case .failure(.otherError):
-                break
-            case .failure(.noData):
-                break
-            }
+        viewModel.items.bind { [weak self] items in
+            self?.items = items
         }
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
 
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return items?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,7 +63,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 as? ImageCollectionViewCell
         else { return UICollectionViewCell() }
         
-        let item = items[indexPath.row]
+        let item = items?[indexPath.row]
         cell.itemAsset = item
         
         return cell

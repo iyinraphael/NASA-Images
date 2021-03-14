@@ -11,7 +11,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properites
     var assetImageView: UIImageView!
-    var titleLabel: UILabel!
     
     var itemAsset: ItemAsset? {
         didSet {
@@ -23,12 +22,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         let radius: CGFloat = 5
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = radius
-        addSubview(view)
         
         assetImageView = UIImageView()
         assetImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,30 +29,13 @@ class ImageCollectionViewCell: UICollectionViewCell {
         assetImageView.contentMode = .scaleAspectFit
         assetImageView.layer.masksToBounds = true
         assetImageView.layer.cornerRadius = radius
-        
-        titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.lineBreakMode = .byTruncatingTail
-        titleLabel.textColor = .black
-        
-        view.addSubview(assetImageView)
-        view.addSubview(titleLabel)
-        
-        let spacing: CGFloat = 6
+        addSubview(assetImageView)
         
         NSLayoutConstraint.activate([
-            view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            view.widthAnchor.constraint(equalTo: widthAnchor),
-            view.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
-            
-            assetImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: spacing),
-            assetImageView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -spacing + (-spacing)),
-            assetImageView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -spacing),
-            
-            titleLabel.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        
+            assetImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            assetImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            assetImageView.widthAnchor.constraint(equalTo: widthAnchor),
+            assetImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9),
         ])
     }
     
@@ -69,6 +45,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Methods
     private func updateView() {
-        titleLabel.text = itemAsset?.data[0].title
+       
     }
 }

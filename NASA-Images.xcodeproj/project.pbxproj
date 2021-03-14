@@ -14,6 +14,8 @@
 		EB5D674D25FD67E4007DD1AC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D674C25FD67E4007DD1AC /* Network.swift */; };
 		EB5D675625FD69B6007DD1AC /* NasaAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D675525FD69B6007DD1AC /* NasaAssets.swift */; };
 		EB5D675A25FD754D007DD1AC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D675925FD754D007DD1AC /* ImageCollectionViewCell.swift */; };
+		EB5D676225FD8D82007DD1AC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D676125FD8D82007DD1AC /* ViewModel.swift */; };
+		EB5D676625FD9064007DD1AC /* BoxObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D676525FD9064007DD1AC /* BoxObservable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		EB5D674C25FD67E4007DD1AC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		EB5D675525FD69B6007DD1AC /* NasaAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaAssets.swift; sourceTree = "<group>"; };
 		EB5D675925FD754D007DD1AC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EB5D676125FD8D82007DD1AC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EB5D676525FD9064007DD1AC /* BoxObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxObservable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		EB5D672C25FD62C6007DD1AC /* NASA-Images */ = {
 			isa = PBXGroup;
 			children = (
+				EB5D676425FD9048007DD1AC /* Utility */,
+				EB5D675C25FD8BCF007DD1AC /* View Model */,
 				EB5D675825FD74E4007DD1AC /* Views */,
 				EB5D675025FD68C3007DD1AC /* Model */,
 				EB5D674B25FD67C8007DD1AC /* Network */,
@@ -100,6 +106,22 @@
 				EB5D675925FD754D007DD1AC /* ImageCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EB5D675C25FD8BCF007DD1AC /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D676125FD8D82007DD1AC /* ViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		EB5D676425FD9048007DD1AC /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D676525FD9064007DD1AC /* BoxObservable.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +197,8 @@
 				EB5D675A25FD754D007DD1AC /* ImageCollectionViewCell.swift in Sources */,
 				EB5D675625FD69B6007DD1AC /* NasaAssets.swift in Sources */,
 				EB5D672E25FD62C6007DD1AC /* AppDelegate.swift in Sources */,
+				EB5D676225FD8D82007DD1AC /* ViewModel.swift in Sources */,
+				EB5D676625FD9064007DD1AC /* BoxObservable.swift in Sources */,
 				EB5D674D25FD67E4007DD1AC /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
